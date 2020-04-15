@@ -1,0 +1,32 @@
+{
+    "manifest_version":2,
+    "name":"Wapp",
+    "description":"Gerenciador de postagens nos grupos Whatsapp",
+    "version":"1.0",
+    "icons":{
+        "16" :"assets/icon16.png",
+        "32" :"assets/icon32.png",
+        "48" :"assets/icon48.png",
+        "128":"assets/icon128.png"
+    },
+
+    "browser_action":{
+        "default_icon": "assets/icon16.png",
+        "default_popup":"html/popup.html"
+    },
+
+    "background": {
+        "scripts":["js/background.js"],
+        "persistent":false
+    },
+
+    "content_scripts": [{
+      "matches": ["https://web.whatsapp.com/"],
+      "all_frames": true,
+      "js":      ["js/jquery.js", "js/content.js"]
+    }],
+
+    "permissions":[
+        "http://localhost/api/"
+    ]
+}
